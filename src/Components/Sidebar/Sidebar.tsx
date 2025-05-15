@@ -1,30 +1,46 @@
 "use client";
-import { JSX } from "react";
 import Link from "next/link";
-import { LayoutDashboard, ArrowRightLeft, ChartSpline } from "lucide-react"; // Пример с иконками из библиотеки
 import { usePathname } from "next/navigation";
+import {
+  LayoutDashboard,
+  ArrowRightLeft,
+  ChartSpline,
+} from "lucide-react";
+import type { JSX } from "react";
+import "./sidebar.scss";
 
-type NavLink = {
+// Типизация для каждой навигационной ссылки
+export type NavLink = {
   href: string;
   label: string;
   icon: JSX.Element;
 };
 
+// Экспортируем массив ссылок для использования в Header
+export const navLinks: NavLink[] = [
+  {
+    href: "/",
+    label: "Панель управления",
+    icon: <LayoutDashboard size={18} />,
+  },
+  {
+    href: "/About",
+    label: "Переводы",
+    icon: <ArrowRightLeft size={18} />,
+  },
+  {
+    href: "/Contact",
+    label: "Аналитика",
+    icon: <ChartSpline size={18} />,
+  },
+
+];
+
 export default function Sidebar() {
   const pathname = usePathname();
 
-  const links: NavLink[] = [
-    {
-      href: "/",
-      label: "Панель управления",
-      icon: <LayoutDashboard size={18} />,
-    },
-    { href: "/About", label: "Переводы", icon: <ArrowRightLeft size={18} /> },
-    { href: "/Contact", label: "Аналитика", icon: <ChartSpline size={18} /> },
-  ];
-
   return (
-    <aside className="sidebar w-[260px] p-4 bg-[#1A1C22] pt-[38px] rounded-br-4xl shadow-2xl    sticky top-0 h-screen">
+    <aside className="sidebar w-[260px] p-4 bg-[#1A1C22] pt-[38px] rounded-br-4xl shadow-2xl sticky top-0 h-screen">
       <Link href="/" className="block rounded" aria-label="Go to homepage">
         <div className="sidebar__logo flex items-center gap-[10px]">
           <svg
@@ -52,10 +68,11 @@ export default function Sidebar() {
           <h1 className="sidebar__title text-[34px] font-bold">Penta</h1>
         </div>
       </Link>
+
       <nav className="mt-[40px]">
         <ul className="space-y-2">
           <li className="flex flex-col gap-[20px]">
-            {links.map((link) => {
+            {navLinks.map((link) => {
               const isActive = pathname === link.href;
 
               return (
@@ -63,8 +80,8 @@ export default function Sidebar() {
                   key={link.href}
                   href={link.href}
                   className={`flex p-[10px] rounded-[9px] text-[17px] items-center gap-[10px] ease-in-out duration-300
-        ${isActive ? "bg-[#282C35] text-[#1FCB4F]" : "text-[#A0A3B1]"}
-        hover:bg-[#282C35] hover:text-[#1FCB4F]`}
+                    ${isActive ? "bg-[#282C35] text-[#1FCB4F]" : "text-[#A0A3B1]"}
+                    hover:bg-[#282C35] hover:text-[#1FCB4F]`}
                 >
                   {link.icon}
                   {link.label}

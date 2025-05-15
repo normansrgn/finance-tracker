@@ -1,4 +1,22 @@
 .header {
-    padding: 20px;
-    background-color: #1A1C22;
+  padding: 20px;
+  background-color: #1a1c22;
+
+  &__burger {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    &__logo,
+    &__burger {
+      display: block;
+    }
+
+    &__user,
+    &__title {
+      display: none;
+    }
+  }
 }
