@@ -1,10 +1,31 @@
-import React from "react";
+"use client";
+import { JSX } from "react";
 import Link from "next/link";
+import { LayoutDashboard, ArrowRightLeft, ChartSpline } from "lucide-react"; // Пример с иконками из библиотеки
+import { usePathname } from "next/navigation";
+
+type NavLink = {
+  href: string;
+  label: string;
+  icon: JSX.Element;
+};
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
+  const links: NavLink[] = [
+    {
+      href: "/",
+      label: "Панель управления",
+      icon: <LayoutDashboard size={18} />,
+    },
+    { href: "/About", label: "Переводы", icon: <ArrowRightLeft size={18} /> },
+    { href: "/Contact", label: "Аналитика", icon: <ChartSpline size={18} /> },
+  ];
+
   return (
-    <aside className="sidebar w-[220px] p-4 bg-[#1A1C22] pt-[38px]  sticky top-0 h-screen">
-      <Link href="/" className="block p-2 rounded" aria-label="Go to homepage">
+    <aside className="sidebar w-[260px] p-4 bg-[#1A1C22] pt-[38px] rounded-br-4xl shadow-2xl    sticky top-0 h-screen">
+      <Link href="/" className="block rounded" aria-label="Go to homepage">
         <div className="sidebar__logo flex items-center gap-[10px]">
           <svg
             width="40"
@@ -31,31 +52,25 @@ export default function Sidebar() {
           <h1 className="sidebar__title text-[34px] font-bold">Penta</h1>
         </div>
       </Link>
-      <nav>
+      <nav className="mt-[40px]">
         <ul className="space-y-2">
-          <li>
-            <Link
-              href="/"
-              className="block p-2 hover:bg-gray-700 text-white rounded"
-            >
-              Панель управления
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              className="block p-2 hover:bg-gray-700 text-white rounded"
-            >
-              О нас
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="block p-2 hover:bg-gray-700 text-white rounded"
-            >
-              Контакты
-            </Link>
+          <li className="flex flex-col gap-[20px]">
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`flex p-[10px] rounded-[9px] text-[17px] items-center gap-[10px] ease-in-out duration-300
+        ${isActive ? "bg-[#282C35] text-[#1FCB4F]" : "text-[#A0A3B1]"}
+        hover:bg-[#282C35] hover:text-[#1FCB4F]`}
+                >
+                  {link.icon}
+                  {link.label}
+                </Link>
+              );
+            })}
           </li>
         </ul>
       </nav>

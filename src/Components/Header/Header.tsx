@@ -2,19 +2,21 @@
 "use client";
 import React from "react";
 import { FaUserAlt } from "react-icons/fa";
-
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import "./header.scss"; // Импортируйте CSS файл для стилей
+import "./header.scss"; 
 
 export default function Header() {
   const pathname = usePathname();
-  
+  const isActive = pathname === "/profile";
+
   const pageTitles: { [key: string]: string } = {
     "/": "Панель управления",
-    "/about": "О нас",
-    "/contact": "Контакты",
-  }
+    "/About": "Переводы",
+    "/Contact": "Аналитика",
+    "/Profile": "Профиль",
+  };
 
   const title = pageTitles[pathname] || "Панель управления";
 
@@ -31,7 +33,14 @@ export default function Header() {
             />
           </div>
           <div className="header__user">
-            <FaUserAlt size={20} />
+            <Link href="/Profile">
+              <FaUserAlt
+                className={`cursor-pointer hover:text-[#1FCB4F] ease-in-out duration-300 ${
+                  isActive ? "text-[#1FCB4F]" : "text-[#A0A3B1]"
+                }  hover:text-[#1FCB4F]`}
+                size={20}
+              />
+            </Link>
           </div>
         </div>
       </nav>
