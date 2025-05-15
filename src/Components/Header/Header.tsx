@@ -9,7 +9,7 @@ import "./header.scss";
 
 export default function Header() {
   const pathname = usePathname();
-  const isActive = pathname === "/profile";
+  const isActive = pathname === "/Profile";
 
   const pageTitles: { [key: string]: string } = {
     "/": "Панель управления",
