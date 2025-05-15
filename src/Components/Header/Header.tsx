@@ -11,10 +11,8 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 export default function Header() {
   const pathname = usePathname();
 
-  // Проверка, есть ли путь в navLinks
   const currentLink = navLinks.find((link) => link.href === pathname);
 
-  // Если нет — например, это /Profile, подставляем вручную
   const title =
     currentLink?.label ||
     (pathname === "/Profile" ? "Профиль" : "Панель управления");

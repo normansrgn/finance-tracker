@@ -11,14 +11,12 @@ import { FaUserAlt } from "react-icons/fa";
 import type { JSX } from "react";
 import "./sidebar.scss";
 
-// Типизация для каждой навигационной ссылки
 export type NavLink = {
   href: string;
   label: string;
   icon: JSX.Element;
 };
 
-// Экспортируем массив ссылок для использования в Header
 export const navLinks: NavLink[] = [
   {
     href: "/",

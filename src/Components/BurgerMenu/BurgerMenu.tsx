@@ -15,7 +15,7 @@ export default function BurgerMenu() {
         {/* Burger Button */}
         <button
           onClick={toggleMenu}
-          className="lg:hidden z-50 p-2 rounded-md text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="lg:hidden z-50 p-2 rounded-md text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:none"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <div className="w-6 h-6 relative">

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "firebase": "^11.7.3",
     "hamburger-react": "^2.5.2",
     "lucide-react": "^0.510.0",
     "next": "15.3.2",
