@@ -56,7 +56,7 @@ export default function Header() {
               placeholder="Поиск.."
             />
           </div>
-          <div className="header__user">
+          {/* <div className="header__user">
             <Link href="/Profile">
               <FaUserAlt
                 className={`cursor-pointer hover:text-[#6359E9] ease-in-out duration-300 ${
@@ -65,7 +65,7 @@ export default function Header() {
                 size={20}
               />
             </Link>
-          </div>
+          </div> */}
           <BurgerMenu />
         </div>
       </nav>
