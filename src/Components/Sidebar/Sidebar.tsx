@@ -6,6 +6,8 @@ import {
   ArrowRightLeft,
   ChartSpline,
 } from "lucide-react";
+
+import { FaUserAlt } from "react-icons/fa";
 import type { JSX } from "react";
 import "./sidebar.scss";
 
@@ -32,6 +34,13 @@ export const navLinks: NavLink[] = [
     href: "/Contact",
     label: "Аналитика",
     icon: <ChartSpline size={18} />,
+    
+  },
+   {
+    href: "/Profile",
+    label: "Профиль",
+    icon: <FaUserAlt size={18} />,
+    
   },
 
 ];

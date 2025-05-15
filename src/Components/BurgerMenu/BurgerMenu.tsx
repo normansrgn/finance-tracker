@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks, NavLink } from "../Sidebar/Sidebar"; // Importing navLinks from your Sidebar
+import { navLinks } from "../Sidebar/Sidebar"; // Importing navLinks from your Sidebar
 
 export default function BurgerMenu() {
   const [isOpen, setOpen] = useState(false);
