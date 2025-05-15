@@ -1,6 +1,5 @@
 // src/components/layout/Header.tsx
 import React from "react";
-import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 
 import "./header.scss"; // Импортируйте CSS файл для стилей
