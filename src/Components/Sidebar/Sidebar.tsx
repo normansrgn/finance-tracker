@@ -1,11 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  LayoutDashboard,
-  ArrowRightLeft,
-  ChartSpline,
-} from "lucide-react";
+import { LayoutDashboard, ArrowRightLeft, ChartSpline, BanknoteArrowUp } from "lucide-react";
 
 import { FaUserAlt } from "react-icons/fa";
 import type { JSX } from "react";
@@ -28,19 +24,22 @@ export const navLinks: NavLink[] = [
     label: "Переводы",
     icon: <ArrowRightLeft size={18} />,
   },
+   {
+    href: "/Income",
+    label: "Доходы",
+    icon:  <BanknoteArrowUp size={18} />,
+  },
   {
     href: "/Contact",
     label: "Аналитика",
     icon: <ChartSpline size={18} />,
-    
   },
-   {
+ 
+  {
     href: "/Profile",
     label: "Профиль",
     icon: <FaUserAlt size={18} />,
-    
   },
-
 ];
 
 export default function Sidebar() {
@@ -52,26 +51,19 @@ export default function Sidebar() {
         <div className="sidebar__logo flex items-center gap-[10px]">
           <svg
             width="40"
-            height="40"
-            viewBox="0 0 27 29"
+            height="50"
+            viewBox="0 0 40 50"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="My Application Logo"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M21.6016 5.17785H10.0906V0.294373L26.4851 0.294373V16.6889H21.6016V5.17785Z"
-              fill="#FFC01E"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M12.6101 14.8951C11.8643 14.3968 10.9876 14.1309 10.0907 14.1309V9.24741C11.9535 9.24741 13.7744 9.79977 15.3232 10.8346C16.872 11.8695 18.0791 13.3404 18.792 15.0614C19.5048 16.7823 19.6913 18.676 19.3279 20.5029C18.9645 22.3299 18.0675 24.008 16.7504 25.3252C15.4332 26.6423 13.7551 27.5393 11.9281 27.9027C10.1012 28.2661 8.20751 28.0796 6.48657 27.3668C4.76563 26.6539 3.29472 25.4468 2.25984 23.898C1.22496 22.3492 0.672604 20.5283 0.672607 18.6655L5.55609 18.6655C5.55608 19.5624 5.82204 20.4391 6.32031 21.1849C6.81858 21.9306 7.5268 22.5118 8.3554 22.855C9.184 23.1982 10.0958 23.288 10.9754 23.1131C11.855 22.9381 12.663 22.5062 13.2972 21.872C13.9314 21.2379 14.3633 20.4299 14.5383 19.5502C14.7132 18.6706 14.6234 17.7588 14.2802 16.9302C13.937 16.1016 13.3558 15.3934 12.6101 14.8951Z"
-              fill="#1FCB4F"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M32.0739 15.418C32.5255 15.3437 32.9869 15.489 33.3158 15.8086C37.1397 19.5268 39.2456 24.5032 39.2456 29.821C39.2456 40.6047 30.4729 49.378 19.6896 49.378C10.7697 49.378 2.98844 43.339 0.766901 34.6924C0.345933 33.0519 0.132507 31.4131 0.132507 29.821C0.132507 26.6958 0.862571 23.6915 2.30245 20.8919C3.71946 18.1396 5.80309 15.7295 8.32832 13.9215C8.34298 13.911 8.35793 13.9008 8.37297 13.8908C8.46604 13.8294 8.56543 13.7567 8.67069 13.6796L8.68149 13.6717C8.69219 13.6639 8.7029 13.6561 8.71361 13.6482C8.75567 13.6174 8.79778 13.5866 8.84013 13.5561C12.8553 10.6829 15.377 6.22884 15.7626 1.33308C15.8006 0.849904 16.0781 0.417941 16.5018 0.182334C16.9254 -0.0531764 17.4385 -0.0609882 17.8691 0.161503C22.8151 2.71788 26.4461 7.27389 27.8309 12.6612C28.252 14.3014 28.4654 15.9402 28.4654 17.5328C28.4654 18.3628 28.4113 19.1905 28.3038 20.0134C29.3824 18.8743 30.2992 17.5857 31.021 16.1836C31.2308 15.776 31.6215 15.492 32.0739 15.418ZM18.9409 35.9114C22.2465 35.9114 24.9262 33.2317 24.9262 29.9261C24.9262 26.6206 22.2465 23.9409 18.9409 23.9409C15.6354 23.9409 12.9557 26.6206 12.9557 29.9261C12.9557 33.2317 15.6354 35.9114 18.9409 35.9114Z"
+              fill="#6359E9"
             />
           </svg>
+
           <h1 className="sidebar__title text-[34px] font-bold">Penta</h1>
         </div>
       </Link>
@@ -87,8 +79,12 @@ export default function Sidebar() {
                   key={link.href}
                   href={link.href}
                   className={`flex p-[10px] rounded-[9px] text-[17px] items-center gap-[10px] ease-in-out duration-300
-                    ${isActive ? "bg-[#282C35] text-[#1FCB4F]" : "text-[#A0A3B1]"}
-                    hover:bg-[#282C35] hover:text-[#1FCB4F]`}
+                    ${
+                      isActive
+                        ? "bg-[#6359E9] text-[white]"
+                        : "text-[#A0A3B1]"
+                    }
+                    hover:bg-[#6359E9] hover:text-[white]`}
                 >
                   {link.icon}
                   {link.label}

@@ -59,8 +59,8 @@ export default function Header() {
           <div className="header__user">
             <Link href="/Profile">
               <FaUserAlt
-                className={`cursor-pointer hover:text-[#1FCB4F] ease-in-out duration-300 ${
-                  pathname === "/Profile" ? "text-[#1FCB4F]" : "text-[#A0A3B1]"
+                className={`cursor-pointer hover:text-[#6359E9] ease-in-out duration-300 ${
+                  pathname === "/Profile" ? "text-[#6359E9]" : "text-[#A0A3B1]"
                 }`}
                 size={20}
               />
