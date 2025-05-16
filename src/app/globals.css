@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@import "bootstrap/dist/css/bootstrap-grid.min.css";
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1D1D41;
+    --background: #282C35;
     --foreground: #ededed;
   }
 }
