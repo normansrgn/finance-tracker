@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks } from "../Sidebar/Sidebar";
